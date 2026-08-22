@@ -286,7 +286,7 @@
   <div class="container">
     <div class="kicker">The flagship problem, animated</div>
     <h2>Watch how a business wire moves through the bank today.</h2>
-    <p class="section-sub">Five hand-offs, two people, ~22 hands-on minutes — repeated ~25 times a day under a hard
+    <p class="section-sub">Five hand-offs, four internal roles, 18–22 hands-on minutes — repeated ~25 times a day under a hard
        cutoff. Follow one wire through every stage of the current-state process.</p>
 
     <div class="controls">
@@ -320,7 +320,7 @@
           </div>
           <div class="step ghost" id="cb" style="grid-row:1;grid-column:5">
             <span class="min">on file</span>
-            <div class="t">Confirms on callback</div><div class="d">known number on file</div>
+            <div class="t">Confirms on callback</div><div class="d">client side of the callback step</div>
           </div>
           <div class="step risk" id="s3" style="grid-row:3;grid-column:5">
             <span class="min">5 min</span>
@@ -362,13 +362,14 @@
       <div class="clock">
         <div class="lbl">Hands-on time so far</div>
         <div class="val"><span id="clockVal">0</span><span style="font-size:20px;"> min</span></div>
-        <div class="sub" id="clockSub">of ~22 minutes per wire</div>
+        <div class="sub" id="clockSub">of up to ~22 minutes per wire</div>
       </div>
     </div>
 
     <p class="wp-foot">Three channels, one bottleneck: every path converges on <b>manual transcription, phone verification,
        and hand re-keying</b> of data that arrived in structured form — the steps Banksee automates, leaving humans the
-       callback exceptions and final approval.</p>
+       callback exceptions and final approval. Callback policy itself always remains the bank's decision, made under the
+       bank's own security procedures — Banksee recommends where to focus it, and never removes it.</p>
   </div>
 </section>
 
@@ -474,7 +475,7 @@
       { id:'s6', lane:'Ops Manager · 2nd Approver', title:'Dual approval', cum:21,
         body:'A second set of eyes — the ops manager — re-verifies every field against the original instruction before approving. Three more minutes, under the same daily cutoff.' },
       { id:'s7', lane:'Wire Operations', title:'Release to Fedwire', cum:22,
-        body:'The wire is released, confirmed, and the client is notified. Total: ~22 hands-on minutes across two people — repeated ~25 times a day, every day, under a hard cutoff.' }
+        body:'The wire is released, confirmed, and the client is notified. Total: up to ~22 hands-on minutes across four internal roles — repeated ~25 times a day, every day, under a hard cutoff.' }
     ];
     var DWELL = 3400;
     var cur = -1, playing = true, timer = null, connEls = [];
@@ -554,7 +555,7 @@
       document.getElementById('nBody').textContent = s.body;
       animateClock(s.cum);
       document.getElementById('clockSub').textContent = (i === STEPS.length-1)
-        ? '×2 people · ×~25 wires/day' : 'of ~22 minutes per wire';
+        ? '× ~25 wires a day, every day' : 'of up to ~22 minutes per wire';
     }
 
     var clockShown = 0, clockTimer = null;
